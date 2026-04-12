@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - FF Panel Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #141a28 100%);
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 4px solid #ff3131;
+            box-shadow: 0 5px 30px rgba(255, 49, 49, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ffb800, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            border: 2px solid #ffb800;
+            box-shadow: 0 0 15px #ffb800;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+            text-shadow: 0 0 8px #ffb800;
+        }
+
+        nav a.active {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+        }
+
+        /* ========== PAGE HERO ========== */
+        .page-hero {
+            text-align: center;
+            padding: 50px 8% 30px;
+            background: radial-gradient(circle at 20% 30%, #1e2a3a, #0d131e);
+            border-bottom: 2px solid #ff3131;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffb800, #ff4d4d, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* ========== CONTENT CONTAINER ========== */
+        .content-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px 50px;
+            background: rgba(25, 35, 50, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 30px;
+            border: 1px solid #3a4a60;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .content-container h2 {
+            font-size: 2rem;
+            margin: 30px 0 15px;
+            color: #ffb800;
+            border-left: 5px solid #ff3131;
+            padding-left: 20px;
+        }
+
+        .content-container h3 {
+            font-size: 1.4rem;
+            margin: 25px 0 10px;
+            color: #ff7b00;
+        }
+
+        .content-container p {
+            margin-bottom: 20px;
+            color: #d0d9e6;
+        }
+
+        .content-container ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            color: #d0d9e6;
+        }
+
+        .content-container li {
+            margin-bottom: 8px;
+        }
+
+        .content-container a {
+            color: #ffb800;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-container a:hover {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
+
+        .last-updated {
+            text-align: right;
+            font-style: italic;
+            color: #aaa;
+            margin-top: 40px;
+            border-top: 1px solid #3a4a60;
+            padding-top: 20px;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0a0f1a;
+            padding: 40px 8% 30px;
+            margin-top: 60px;
+            border-top: 5px solid #ff3131;
+            box-shadow: 0 -5px 30px rgba(255, 49, 49, 0.2);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #ffb800;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 12px;
+            transition: 0.2s;
+        }
+
+        footer a:hover {
+            color: #ff4d4d;
+            text-shadow: 0 0 8px #ff4d4d;
+        }
+
+        .founder {
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ffb800, #ff7b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 800;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 12px;
+                font-size: 0.9rem;
+            }
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            .content-container {
+                padding: 25px 20px;
+                margin: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="logo">
+            <img src="https://placehold.co/100x100/1a1a2e/ffb800?text=FF" alt="FF Logo">
+            <span>FF <span style="color: #ffb800;">PANEL</span> HUB</span>
+        </div>
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="category.html">📂 Categories</a>
+            <a href="privacy.html" class="active">🔒 Privacy</a>
+            <a href="disclaimer.html">⚠️ Disclaimer</a>
+        </nav>
+    </header>
+
+    <!-- ====== PAGE HERO ====== -->
+    <section class="page-hero">
+        <h1>🔒 PRIVACY POLICY</h1>
+    </section>
+
+    <!-- ====== PRIVACY CONTENT ====== -->
+    <div class="content-container">
+        
+        <p>Welcome to FF Panel Hub ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website <strong>ffpanelhub.com</strong> (the "Site").</p>
+        
+        <p>By using the Site, you agree to the collection and use of information in accordance with this policy.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>We collect information in the following ways:</p>
+        
+        <h3>a) Personal Data</h3>
+        <p>We do <strong>not</strong> require you to register or provide personal information to use our Site. However, if you contact us via email or a contact form, we may collect your name and email address solely for the purpose of responding to your inquiry.</p>
+        
+        <h3>b) Log Data & Device Information</h3>
+        <p>Like most websites, we automatically collect certain information sent by your browser. This may include:</p>
+        <ul>
+            <li>IP address</li>
+            <li>Browser type and version</li>
+            <li>Pages visited and time spent</li>
+            <li>Referring website addresses</li>
+            <li>Device type and operating system</li>
+        </ul>
+        <p>This data is used for analytics and to improve site performance.</p>
+
+        <h3>c) Cookies and Tracking Technologies</h3>
+        <p>We use cookies and similar technologies to enhance your browsing experience. Cookies are small files stored on your device. You can control cookies through your browser settings.</p>
+        <p>We specifically use:</p>
+        <ul>
+            <li><strong>Essential Cookies:</strong> Necessary for site functionality.</li>
+            <li><strong>Analytics Cookies:</strong> (e.g., Google Analytics) to understand visitor behavior.</li>
+            <li><strong>Advertising Cookies:</strong> Used by third-party ad networks (like Google AdSense) to serve relevant ads.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the collected data for the following purposes:</p>
+        <ul>
+            <li>To operate and maintain the Site.</li>
+            <li>To analyze usage trends and improve content.</li>
+            <li>To display personalized advertisements via Google AdSense and other partners.</li>
+            <li>To detect and prevent fraudulent or illegal activity.</li>
+            <li>To respond to your inquiries or support requests.</li>
+        </ul>
+
+        <h2>3. Third-Party Services & Advertising</h2>
+        <p>We use third-party services that may collect information used to identify you.</p>
+        
+        <h3>Google AdSense</h3>
+        <p>We display ads served by Google AdSense. Google uses cookies to serve ads based on your prior visits to our Site or other websites. You can opt out of personalized advertising by visiting <a href="https://adssettings.google.com" target="_blank">Google Ads Settings</a>.</p>
+        
+        <h3>Google Analytics</h3>
+        <p>We use Google Analytics to monitor traffic. Google's privacy policy is available at: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a>.</p>
+        
+        <p>Our Site may also contain links to external sites (e.g., YouTube, Discord, Telegram). We are not responsible for the privacy practices of these third-party sites.</p>
+
+        <h2>4. Children's Privacy</h2>
+        <p>Our Site is a fan-made resource for the game Free Fire. While the game is played by users of all ages, we do not knowingly collect personal information from children under the age of 13. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
+
+        <h2>5. Data Security</h2>
+        <p>We implement reasonable security measures to protect your information. However, no method of transmission over the Internet is 100% secure. We cannot guarantee absolute security.</p>
+
+        <h2>6. Your Data Protection Rights</h2>
+        <p>Depending on your location (e.g., EU/EEA, California), you may have the following rights:</p>
+        <ul>
+            <li>The right to access, update, or delete the information we have on you.</li>
+            <li>The right to object to processing of your personal data.</li>
+            <li>The right to data portability.</li>
+            <li>The right to withdraw consent.</li>
+        </ul>
+        <p>To exercise these rights, please contact us at the email below.</p>
+
+        <h2>7. Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+
+        <h2>8. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
+        <p>
+            📧 <strong>Email:</strong> privacy@ffpanelhub.com<br>
+            🌐 <strong>Website:</strong> <a href="index.html">ffpanelhub.com</a>
+        </p>
+
+        <div class="last-updated">
+            Last Updated: January 1, 2026
+        </div>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <p>© 2025 FF Panel Hub. All Rights Reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="disclaimer.html">Disclaimer</a> | 
+            <a href="contact.html">Contact</a>
+        </p>
+        <div class="founder">
+            ⚡ Founder & Owner: Er. Vikas Sharma ⚡
+        </div>
+        <p style="margin-top: 20px; color: #888;">📧 er.vikas@ffpanelhub.com</p>
+    </footer>
+
+</body>
+</html>
