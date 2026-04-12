@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4K Wallpapers - FF Panel Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #141a28 100%);
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 4px solid #ff3131;
+            box-shadow: 0 5px 30px rgba(255, 49, 49, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ffb800, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            border: 2px solid #ffb800;
+            box-shadow: 0 0 15px #ffb800;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+            text-shadow: 0 0 8px #ffb800;
+        }
+
+        nav a.active {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+        }
+
+        /* ========== PAGE HERO ========== */
+        .page-hero {
+            text-align: center;
+            padding: 50px 8% 30px;
+            background: radial-gradient(circle at 20% 30%, #1e2a3a, #0d131e);
+            border-bottom: 2px solid #ff3131;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffb800, #ff4d4d, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        /* ========== AD SPACE ========== */
+        .ad-container {
+            margin: 40px 8%;
+            padding: 20px;
+            background: linear-gradient(145deg, #1c2533, #121a26);
+            border-radius: 20px;
+            border: 1px solid #ff4d4d;
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.2);
+            text-align: center;
+        }
+
+        .ad-label {
+            color: #ffb800;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .fake-ad {
+            height: 100px;
+            background: linear-gradient(90deg, #2a3647, #1e2838);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-weight: 600;
+            border: 1px dashed #ff7b00;
+            box-shadow: inset 0 0 20px #00000040;
+        }
+
+        /* ========== CONTENT SECTION ========== */
+        .content-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 5% 50px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 40px 0 30px;
+            color: #ffb800;
+            border-left: 5px solid #ff3131;
+            padding-left: 20px;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #3a4a60;
+            color: #e0e0e0;
+            padding: 12px 25px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active-filter {
+            background: linear-gradient(45deg, #ff3131, #ff7b00);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 0 20px #ff7b00;
+        }
+
+        /* Wallpaper Grid */
+        .wallpaper-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .wallpaper-card {
+            background: rgba(25, 35, 50, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid #3a4a60;
+            box-shadow: 0 10px 0 #0b1119, 0 8px 20px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+
+        .wallpaper-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff7b00;
+            box-shadow: 0 15px 0 #0b1119, 0 0 25px #ff7b0080;
+        }
+
+        .wallpaper-img {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: #1a2535;
+            border-bottom: 2px solid #3a4a60;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffb800;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .wallpaper-info {
+            padding: 20px 15px;
+        }
+
+        .wallpaper-info h4 {
+            color: #ffb800;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .wallpaper-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .wallpaper-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .download-btn {
+            flex: 1;
+            background: transparent;
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            background: #ff3131;
+            color: #fff;
+            box-shadow: 0 0 10px #ff3131;
+        }
+
+        .preview-btn {
+            background: transparent;
+            border: 1px solid #ffb800;
+            color: #ffb800;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .preview-btn:hover {
+            background: #ffb800;
+            color: #000;
+            box-shadow: 0 0 10px #ffb800;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        .page-link {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #151b24;
+            border: 1px solid #3a4a60;
+            border-radius: 12px;
+            color: #e0e0e0;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .page-link:hover,
+        .page-link.active-page {
+            background: linear-gradient(45deg, #ff3131, #ff7b00);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 0 15px #ff7b00;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0a0f1a;
+            padding: 40px 8% 30px;
+            margin-top: 60px;
+            border-top: 5px solid #ff3131;
+            box-shadow: 0 -5px 30px rgba(255, 49, 49, 0.2);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #ffb800;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 12px;
+            transition: 0.2s;
+        }
+
+        footer a:hover {
+            color: #ff4d4d;
+            text-shadow: 0 0 8px #ff4d4d;
+        }
+
+        .founder {
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ffb800, #ff7b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 800;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 12px;
+                font-size: 0.9rem;
+            }
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+            .wallpaper-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wallpaper-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="logo">
+            <img src="https://placehold.co/100x100/1a1a2e/ffb800?text=FF" alt="FF Logo">
+            <span>FF <span style="color: #ffb800;">PANEL</span> HUB</span>
+        </div>
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="category.html">📂 Categories</a>
+            <a href="dp-zone.html">🔥 DP Zone</a>
+            <a href="panelinfo.html">🛡️ Panel Info</a>
+            <a href="sensitivity.html">🎯 Sensitivity</a>
+            <a href="guildname.html">🖼️ Guild & Name</a>
+            <a href="redeemcodes.html">🎁 Codes</a>
+            <a href="wallpapers.html" class="active">📸 Wallpapers</a>
+            <a href="privacy.html">🔒 Privacy</a>
+            <a href="disclaimer.html">⚠️ Disclaimer</a>
+            <a href="contact.html">📞 Contact</a>
+        </nav>
+    </header>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="page-hero">
+        <h1>📸 4K WALLPAPERS</h1>
+        <p>Download stunning Free Fire wallpapers in Ultra HD for mobile and desktop!</p>
+    </section>
+
+    <!-- ====== TOP ADVERTISEMENT ====== -->
+    <div class="ad-container">
+        <div class="ad-label">Sponsored Ad</div>
+        <div class="fake-ad">💰 Google AdSense Banner (728x90) 💰</div>
+    </div>
+
+    <!-- ====== CONTENT SECTION ====== -->
+    <div class="content-section">
+        
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active-filter" data-filter="all">All Wallpapers</button>
+            <button class="filter-btn" data-filter="character">Characters</button>
+            <button class="filter-btn" data-filter="weapon">Weapons</button>
+            <button class="filter-btn" data-filter="event">Events</button>
+            <button class="filter-btn" data-filter="bundle">Bundles</button>
+            <button class="filter-btn" data-filter="abstract">Abstract</button>
+        </div>
+
+        <!-- Wallpaper Grid -->
+        <div class="wallpaper-grid" id="wallpaperGrid">
+            
+            <!-- Wallpaper 1 - Character -->
+            <div class="wallpaper-card" data-category="character">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-dj-alok.png
+                </div>
+                <!-- Actual image: <img src="images/wallpapers/dj-alok-4k.png" alt="DJ Alok 4K" class="wallpaper-img"> -->
+                <div class="wallpaper-info">
+                    <h4>DJ Alok 4K</h4>
+                    <p>Resolution: 2160x3840</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 2 - Character -->
+            <div class="wallpaper-card" data-category="character">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-chrono.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>Chrono 4K</h4>
+                    <p>Resolution: 2160x3840</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 3 - Weapon -->
+            <div class="wallpaper-card" data-category="weapon">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-m1014.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>M1014 Green Flame</h4>
+                    <p>Resolution: 3840x2160</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 4 - Bundle -->
+            <div class="wallpaper-card" data-category="bundle">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-cobra-bundle.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>Cobra Bundle</h4>
+                    <p>Resolution: 2160x3840</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 5 - Event -->
+            <div class="wallpaper-card" data-category="event">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-booyah-day.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>Booyah Day 2025</h4>
+                    <p>Resolution: 3840x2160</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 6 - Abstract -->
+            <div class="wallpaper-card" data-category="abstract">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-ff-logo-abstract.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>FF Logo Abstract</h4>
+                    <p>Resolution: 2160x3840</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 7 - Character -->
+            <div class="wallpaper-card" data-category="character">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-kelly.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>Kelly The Swift</h4>
+                    <p>Resolution: 2160x3840</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 8 - Weapon -->
+            <div class="wallpaper-card" data-category="weapon">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-scar.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>SCAR Dragon Soul</h4>
+                    <p>Resolution: 3840x2160</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 9 - Bundle -->
+            <div class="wallpaper-card" data-category="bundle">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-hip-hop-bundle.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>Hip Hop Bundle</h4>
+                    <p>Resolution: 2160x3840</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 10 - Event -->
+            <div class="wallpaper-card" data-category="event">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-anniversary.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>7th Anniversary</h4>
+                    <p>Resolution: 3840x2160</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 11 - Abstract -->
+            <div class="wallpaper-card" data-category="abstract">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-neon-ff.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>Neon FF Art</h4>
+                    <p>Resolution: 2160x3840</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallpaper 12 - Character -->
+            <div class="wallpaper-card" data-category="character">
+                <div class="wallpaper-img">
+                    <i class="fas fa-image" style="margin-right: 8px;"></i> wallpaper-hayato.png
+                </div>
+                <div class="wallpaper-info">
+                    <h4>Hayato Firebrand</h4>
+                    <p>Resolution: 2160x3840</p>
+                    <div class="wallpaper-actions">
+                        <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                        <a href="#" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="page-link active-page">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <!-- Mid Ad -->
+        <div class="ad-container" style="margin: 50px 0 0;">
+            <div class="ad-label">Sponsored Ad</div>
+            <div class="fake-ad">💰 Google AdSense (Responsive Ad) 💰</div>
+        </div>
+
+        <!-- Info Note -->
+        <div style="background: #1a2535; border-radius: 20px; padding: 25px; margin-top: 40px; border: 1px solid #ff4d4d;">
+            <p style="color: #ffb800;"><i class="fas fa-info-circle"></i> <strong>Note:</strong> All wallpapers are fan-made or official media for personal use only. Click Download to save the high-resolution image. Preview opens the full image in a new tab.</p>
+        </div>
+
+    </div>
+
+    <!-- ====== BOTTOM ADVERTISEMENT ====== -->
+    <div class="ad-container">
+        <div class="ad-label">Sponsored Ad</div>
+        <div class="fake-ad">💰 Google AdSense (Responsive Ad) 💰</div>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <p>© 2025 FF Panel Hub. All Rights Reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="disclaimer.html">Disclaimer</a> | 
+            <a href="contact.html">Contact</a>
+        </p>
+        <div class="founder">
+            ⚡ Founder & Owner: Er. Dipak ⚡
+        </div>
+        <p style="margin-top: 20px; color: #888;">📧 deepahindu656@gmail.com</p>
+    </footer>
+
+    <!-- ====== FILTER SCRIPT ====== -->
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const wallpaperCards = document.querySelectorAll('.wallpaper-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(b => b.classList.remove('active-filter'));
+                // Add active class to clicked button
+                btn.classList.add('active-filter');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                
+                wallpaperCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Preview/Demo download (you can replace with actual functionality)
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Demo: In real site, this would download the wallpaper.');
+            });
+        });
+        
+        document.querySelectorAll('.preview-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Demo: In real site, this would open full image preview.');
+            });
+        });
+    </script>
+
+</body>
+</html>
