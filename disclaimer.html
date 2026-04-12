@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - FF Panel Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #141a28 100%);
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 4px solid #ff3131;
+            box-shadow: 0 5px 30px rgba(255, 49, 49, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ffb800, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            border: 2px solid #ffb800;
+            box-shadow: 0 0 15px #ffb800;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+            text-shadow: 0 0 8px #ffb800;
+        }
+
+        nav a.active {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+        }
+
+        /* ========== PAGE HERO ========== */
+        .page-hero {
+            text-align: center;
+            padding: 50px 8% 30px;
+            background: radial-gradient(circle at 20% 30%, #1e2a3a, #0d131e);
+            border-bottom: 2px solid #ff3131;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffb800, #ff4d4d, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* ========== CONTENT CONTAINER ========== */
+        .content-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px 50px;
+            background: rgba(25, 35, 50, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 30px;
+            border: 1px solid #3a4a60;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .content-container h2 {
+            font-size: 2rem;
+            margin: 30px 0 15px;
+            color: #ffb800;
+            border-left: 5px solid #ff3131;
+            padding-left: 20px;
+        }
+
+        .content-container h3 {
+            font-size: 1.4rem;
+            margin: 25px 0 10px;
+            color: #ff7b00;
+        }
+
+        .content-container p {
+            margin-bottom: 20px;
+            color: #d0d9e6;
+        }
+
+        .content-container ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            color: #d0d9e6;
+        }
+
+        .content-container li {
+            margin-bottom: 8px;
+        }
+
+        .content-container a {
+            color: #ffb800;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .content-container a:hover {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
+
+        /* Warning Box inside content */
+        .warning-highlight {
+            background: linear-gradient(145deg, #2a1f1f, #1f1818);
+            border-left: 8px solid #ffcc00;
+            padding: 25px 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            color: #ffd9b3;
+        }
+
+        .warning-highlight strong {
+            color: #ffcc00;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            text-align: right;
+            font-style: italic;
+            color: #aaa;
+            margin-top: 40px;
+            border-top: 1px solid #3a4a60;
+            padding-top: 20px;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0a0f1a;
+            padding: 40px 8% 30px;
+            margin-top: 60px;
+            border-top: 5px solid #ff3131;
+            box-shadow: 0 -5px 30px rgba(255, 49, 49, 0.2);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #ffb800;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 12px;
+            transition: 0.2s;
+        }
+
+        footer a:hover {
+            color: #ff4d4d;
+            text-shadow: 0 0 8px #ff4d4d;
+        }
+
+        .founder {
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ffb800, #ff7b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 800;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 12px;
+                font-size: 0.9rem;
+            }
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            .content-container {
+                padding: 25px 20px;
+                margin: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="logo">
+            <img src="https://placehold.co/100x100/1a1a2e/ffb800?text=FF" alt="FF Logo">
+            <span>FF <span style="color: #ffb800;">PANEL</span> HUB</span>
+        </div>
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="category.html">📂 Categories</a>
+            <a href="privacy.html">🔒 Privacy</a>
+            <a href="disclaimer.html" class="active">⚠️ Disclaimer</a>
+        </nav>
+    </header>
+
+    <!-- ====== PAGE HERO ====== -->
+    <section class="page-hero">
+        <h1>⚠️ DISCLAIMER</h1>
+    </section>
+
+    <!-- ====== DISCLAIMER CONTENT ====== -->
+    <div class="content-container">
+        
+        <div class="warning-highlight">
+            <strong>⚠️ IMPORTANT – PLEASE READ CAREFULLY</strong>
+            This is an unofficial fan website. We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Garena Free Fire, Garena International, or any of its subsidiaries or affiliates.
+        </div>
+
+        <h2>1. General Information</h2>
+        <p>The information provided on <strong>FF Panel Hub</strong> (the "Site") is for general informational and entertainment purposes only. All content, including text, graphics, images, and other material, is provided "as is" without any warranties of any kind.</p>
+
+        <h2>2. No Official Affiliation</h2>
+        <p>This Site is an independent, fan-created project. All trademarks, service marks, trade names, and game assets displayed are the property of their respective owners, including but not limited to Garena International. The use of these trademarks does not imply any endorsement or relationship.</p>
+
+        <h2>3. Third-Party Tools & Hacking Disclaimer</h2>
+        <p>Our Site may provide information about third-party tools, panels, regedit files, or modifications ("Tools") for educational and informational purposes only. We <strong>DO NOT</strong> host, distribute, or directly provide any APK files, MOD files, hacking software, or illegal cheats.</p>
+        <p>Using such third-party tools violates Free Fire's Terms of Service and may result in:</p>
+        <ul>
+            <li>Permanent account suspension or ban</li>
+            <li>Loss of in-game currency and items</li>
+            <li>Potential security risks to your device</li>
+        </ul>
+        <p>By following any information on this Site, you acknowledge that <strong>YOU ARE SOLELY RESPONSIBLE</strong> for any consequences that may occur. We strongly advise against the use of any unauthorized software.</p>
+
+        <h2>4. Accuracy of Information</h2>
+        <p>While we strive to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the Site or the information, products, services, or related graphics contained on the Site. Any reliance you place on such information is therefore strictly at your own risk.</p>
+
+        <h2>5. External Links Disclaimer</h2>
+        <p>The Site may contain links to external websites that are not provided or maintained by us. We do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>
+
+        <h2>6. Affiliate & Advertising Disclaimer</h2>
+        <p>This Site uses Google AdSense and may use other affiliate advertising programs to monetize traffic. Clicking on advertisements or affiliate links may result in us earning a commission at no additional cost to you.</p>
+
+        <h2>7. Limitation of Liability</h2>
+        <p>In no event shall FF Panel Hub or its owner/founder be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence, or other tort, arising out of or in connection with the use of the Site or the contents of the Site.</p>
+
+        <h2>8. Changes to This Disclaimer</h2>
+        <p>We reserve the right to modify this disclaimer at any time. Changes will be posted on this page with an updated revision date.</p>
+
+        <h2>9. Contact Us</h2>
+        <p>If you have any questions regarding this disclaimer, you may contact us at:</p>
+        <p>
+            📧 <strong>Email:</strong> legal@ffpanelhub.com<br>
+            🌐 <strong>Website:</strong> <a href="index.html">ffpanelhub.com</a>
+        </p>
+
+        <div class="last-updated">
+            Last Updated: January 1, 2026
+        </div>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <p>© 2025 FF Panel Hub. All Rights Reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="disclaimer.html">Disclaimer</a> | 
+            <a href="contact.html">Contact</a>
+        </p>
+        <div class="founder">
+            ⚡ Founder & Owner: Er. Vikas Sharma ⚡
+        </div>
+        <p style="margin-top: 20px; color: #888;">📧 er.vikas@ffpanelhub.com</p>
+    </footer>
+
+</body>
+</html>
