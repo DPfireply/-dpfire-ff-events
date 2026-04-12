@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Redeem Codes - FF Panel Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #141a28 100%);
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 4px solid #ff3131;
+            box-shadow: 0 5px 30px rgba(255, 49, 49, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ffb800, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            border: 2px solid #ffb800;
+            box-shadow: 0 0 15px #ffb800;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+            text-shadow: 0 0 8px #ffb800;
+        }
+
+        nav a.active {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+        }
+
+        /* ========== PAGE HERO ========== */
+        .page-hero {
+            text-align: center;
+            padding: 50px 8% 30px;
+            background: radial-gradient(circle at 20% 30%, #1e2a3a, #0d131e);
+            border-bottom: 2px solid #ff3131;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffb800, #ff4d4d, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        /* ========== AD SPACE ========== */
+        .ad-container {
+            margin: 40px 8%;
+            padding: 20px;
+            background: linear-gradient(145deg, #1c2533, #121a26);
+            border-radius: 20px;
+            border: 1px solid #ff4d4d;
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.2);
+            text-align: center;
+        }
+
+        .ad-label {
+            color: #ffb800;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .fake-ad {
+            height: 100px;
+            background: linear-gradient(90deg, #2a3647, #1e2838);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-weight: 600;
+            border: 1px dashed #ff7b00;
+            box-shadow: inset 0 0 20px #00000040;
+        }
+
+        /* ========== CONTENT SECTION ========== */
+        .content-section {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 5% 50px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 40px 0 30px;
+            color: #ffb800;
+            border-left: 5px solid #ff3131;
+            padding-left: 20px;
+        }
+
+        /* Info Alert */
+        .info-alert {
+            background: linear-gradient(145deg, #1a2a1f, #0f1a12);
+            border-left: 8px solid #00cc66;
+            padding: 20px 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #ccffcc;
+        }
+
+        .info-alert i {
+            font-size: 2.5rem;
+            color: #00cc66;
+        }
+
+        /* Codes Table */
+        .codes-table-wrapper {
+            background: rgba(25, 35, 50, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 25px;
+            padding: 10px;
+            border: 1px solid #3a4a60;
+            overflow-x: auto;
+        }
+
+        .codes-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .codes-table th {
+            text-align: left;
+            padding: 20px 20px 15px;
+            color: #ffb800;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #ff3131;
+        }
+
+        .codes-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #2e3a4a;
+            color: #e0e0e0;
+        }
+
+        .codes-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .codes-table tr:hover td {
+            background: rgba(255, 123, 0, 0.1);
+        }
+
+        .code-badge {
+            background: #1a2535;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #ffb800;
+            border: 1px dashed #ff7b00;
+            display: inline-block;
+        }
+
+        .copy-code-btn {
+            background: transparent;
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .copy-code-btn:hover {
+            background: #ff3131;
+            color: #fff;
+            box-shadow: 0 0 10px #ff3131;
+        }
+
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: #00cc6611;
+            color: #00cc66;
+            border: 1px solid #00cc66;
+        }
+
+        .status-expired {
+            background: #ff4d4d11;
+            color: #ff4d4d;
+            border: 1px solid #ff4d4d;
+        }
+
+        /* How to Redeem Steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .step-card {
+            background: rgba(25, 35, 50, 0.7);
+            border-radius: 25px;
+            padding: 30px 25px;
+            border: 1px solid #3a4a60;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .step-card:hover {
+            border-color: #ff7b00;
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff3131, #ff7b00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px rgba(255, 49, 49, 0.4);
+        }
+
+        .step-card h4 {
+            color: #ffb800;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .step-card p {
+            color: #ccc;
+        }
+
+        .step-card a {
+            color: #ff7b00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Disclaimer */
+        .disclaimer-box {
+            margin-top: 50px;
+            padding: 25px;
+            background: linear-gradient(145deg, #2a1f1f, #1f1818);
+            border-left: 8px solid #ffcc00;
+            border-radius: 15px;
+            color: #ffd9b3;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0a0f1a;
+            padding: 40px 8% 30px;
+            margin-top: 60px;
+            border-top: 5px solid #ff3131;
+            box-shadow: 0 -5px 30px rgba(255, 49, 49, 0.2);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #ffb800;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 12px;
+            transition: 0.2s;
+        }
+
+        footer a:hover {
+            color: #ff4d4d;
+            text-shadow: 0 0 8px #ff4d4d;
+        }
+
+        .founder {
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ffb800, #ff7b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 800;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 12px;
+                font-size: 0.9rem;
+            }
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="logo">
+            <img src="https://placehold.co/100x100/1a1a2e/ffb800?text=FF" alt="FF Logo">
+            <span>FF <span style="color: #ffb800;">PANEL</span> HUB</span>
+        </div>
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="category.html">📂 Categories</a>
+            <a href="dpzone.html">🔥 DP Zone</a>
+            <a href="panel-info.html">🛡️ Panel Info</a>
+            <a href="sensitivity.html">🎯 Sensitivity</a>
+            <a href="guildname.html">🖼️ Guild & Name</a>
+            <a href="redeemcodes.html" class="active">🎁 Redeem Codes</a>
+            <a href="privacy.html">🔒 Privacy</a>
+            <a href="disclaimer.html">⚠️ Disclaimer</a>
+            <a href="contact.html">📞 Contact</a>
+        </nav>
+    </header>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="page-hero">
+        <h1>🎁 TODAY'S REDEEM CODES</h1>
+        <p>Get free diamonds, characters, skins, and bundles with official Garena codes!</p>
+    </section>
+
+    <!-- ====== TOP ADVERTISEMENT ====== -->
+    <div class="ad-container">
+        <div class="ad-label">Sponsored Ad</div>
+        <div class="fake-ad">💰 Google AdSense Banner (728x90) 💰</div>
+    </div>
+
+    <!-- ====== CONTENT SECTION ====== -->
+    <div class="content-section">
+        
+        <!-- Info Alert -->
+        <div class="info-alert">
+            <i class="fas fa-gift"></i>
+            <div>
+                <strong>Updated Daily!</strong> New codes are added as soon as they're released. Check back every day for fresh rewards.
+            </div>
+        </div>
+
+        <!-- Codes Table -->
+        <h2 class="section-title">📋 Active Redeem Codes</h2>
+        <div class="codes-table-wrapper">
+            <table class="codes-table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Reward</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="code-badge">FF11HHGCGK3B</span></td>
+                        <td>100 Diamonds + Weapon Loot Crate</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="copy-code-btn" onclick="copyCode('FF11HHGCGK3B')"><i class="far fa-copy"></i> Copy</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-badge">FFBCLQ6S4W9X</span></td>
+                        <td>Diamond Royale Voucher (1x)</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="copy-code-btn" onclick="copyCode('FFBCLQ6S4W9X')"><i class="far fa-copy"></i> Copy</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-badge">FFAC2YXE6RF2</span></td>
+                        <td>Pet Food + 50 Diamonds</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="copy-code-btn" onclick="copyCode('FFAC2YXE6RF2')"><i class="far fa-copy"></i> Copy</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-badge">FF9MJ31CXKRG</span></td>
+                        <td>M1014 Green Flame Draco Skin</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="copy-code-btn" onclick="copyCode('FF9MJ31CXKRG')"><i class="far fa-copy"></i> Copy</button></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-badge">FF7MUY4ME6SC</span></td>
+                        <td>Incubator Voucher + 200 Diamonds</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="copy-code-btn" onclick="copyCode('FF7MUY4ME6SC')"><i class="far fa-copy"></i> Copy</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p style="margin-top: 20px; color: #aaa; text-align: right;"><i class="fas fa-clock"></i> Last updated: Today, 10:30 AM</p>
+
+        <!-- Expired Codes (Collapsible or separate) -->
+        <h3 style="margin: 40px 0 20px; color: #ff4d4d;">⏰ Recently Expired Codes</h3>
+        <div class="codes-table-wrapper">
+            <table class="codes-table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Reward</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="code-badge" style="opacity:0.6;">FF8SJN9K5LQ2</span></td>
+                        <td>Grenade Skin + 100 Diamonds</td>
+                        <td><span class="status-badge status-expired">Expired</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-badge" style="opacity:0.6;">FFPLFMSQ9W5H</span></td>
+                        <td>MP40 Gold Coated Skin</td>
+                        <td><span class="status-badge status-expired">Expired</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code-badge" style="opacity:0.6;">FF6WMF3VRNLG</span></td>
+                        <td>1000 Gold + 50 Diamonds</td>
+                        <td><span class="status-badge status-expired">Expired</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mid Ad -->
+        <div class="ad-container" style="margin: 40px 0;">
+            <div class="ad-label">Sponsored Ad</div>
+            <div class="fake-ad">💰 Google AdSense (Responsive Ad) 💰</div>
+        </div>
+
+        <!-- How to Redeem Section -->
+        <h2 class="section-title">📖 How to Redeem Codes</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>Visit Official Site</h4>
+                <p>Go to <a href="https://reward.ff.garena.com" target="_blank">reward.ff.garena.com</a> – the official Garena redemption center.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>Login</h4>
+                <p>Sign in with your Free Fire account (Facebook, Google, VK, Twitter, or Huawei).</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>Enter Code</h4>
+                <p>Paste the 12-character code into the text box and click "Confirm".</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>Claim in Game</h4>
+                <p>Open Free Fire and check your in-game mail or vault to collect rewards.</p>
+            </div>
+        </div>
+
+        <!-- Important Notes -->
+        <div style="background: #1a2535; border-radius: 20px; padding: 25px; margin: 40px 0;">
+            <h4 style="color: #ffb800; margin-bottom: 15px;"><i class="fas fa-exclamation-circle"></i> Important Notes</h4>
+            <ul style="color: #ccc; margin-left: 20px;">
+                <li>Codes may be region-specific. Some codes only work in India, Indonesia, Brazil, etc.</li>
+                <li>Codes have limited uses (often 500 per account or total redemption limit).</li>
+                <li>Guest accounts cannot redeem codes. You must bind your account to a platform.</li>
+                <li>Redeem quickly! Codes expire within 24-48 hours of release.</li>
+            </ul>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer-box">
+            <i class="fas fa-shield-alt" style="color: #ffcc00; margin-right: 10px;"></i>
+            <strong>Disclaimer:</strong> FF Panel Hub is not affiliated with Garena. All codes are provided by Garena Free Fire officially. We only compile and share them for your convenience. We do not generate or sell codes. Availability and rewards are subject to change without notice.
+        </div>
+    </div>
+
+    <!-- ====== BOTTOM ADVERTISEMENT ====== -->
+    <div class="ad-container">
+        <div class="ad-label">Sponsored Ad</div>
+        <div class="fake-ad">💰 Google AdSense (Responsive Ad) 💰</div>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <p>© 2025 FF Panel Hub. All Rights Reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="disclaimer.html">Disclaimer</a> | 
+            <a href="contact.html">Contact</a>
+        </p>
+        <div class="founder">
+            ⚡ Founder & Owner: Er. Vikas Sharma ⚡
+        </div>
+        <p style="margin-top: 20px; color: #888;">📧 er.vikas@ffpanelhub.com</p>
+    </footer>
+
+    <!-- ====== SCRIPT ====== -->
+    <script>
+        function copyCode(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied: ' + code + '\nNow paste it at reward.ff.garena.com');
+            }).catch(() => {
+                prompt('Copy manually:', code);
+            });
+        }
+    </script>
+
+</body>
+</html>
