@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FF DP Zone - Free Fire Profile Pictures</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0f1a 0%, #141a28 100%);
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 4px solid #ff3131;
+            box-shadow: 0 5px 30px rgba(255, 49, 49, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ffb800, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            border: 2px solid #ffb800;
+            box-shadow: 0 0 15px #ffb800;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+            text-shadow: 0 0 8px #ffb800;
+        }
+
+        nav a.active {
+            color: #ffb800;
+            border-bottom-color: #ff3131;
+        }
+
+        /* ========== PAGE HERO ========== */
+        .page-hero {
+            text-align: center;
+            padding: 50px 8% 30px;
+            background: radial-gradient(circle at 20% 30%, #1e2a3a, #0d131e);
+            border-bottom: 2px solid #ff3131;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffb800, #ff4d4d, #ff3131);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        /* ========== AD SPACE ========== */
+        .ad-container {
+            margin: 40px 8%;
+            padding: 20px;
+            background: linear-gradient(145deg, #1c2533, #121a26);
+            border-radius: 20px;
+            border: 1px solid #ff4d4d;
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.2);
+            text-align: center;
+        }
+
+        .ad-label {
+            color: #ffb800;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .fake-ad {
+            height: 100px;
+            background: linear-gradient(90deg, #2a3647, #1e2838);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-weight: 600;
+            border: 1px dashed #ff7b00;
+            box-shadow: inset 0 0 20px #00000040;
+        }
+
+        /* ========== CATEGORY FILTER TABS ========== */
+        .filter-section {
+            padding: 20px 8% 0;
+        }
+
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #3a4a60;
+            color: #e0e0e0;
+            padding: 12px 25px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active-filter {
+            background: linear-gradient(45deg, #ff3131, #ff7b00);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 0 20px #ff7b00;
+        }
+
+        /* ========== DP GALLERY GRID ========== */
+        .gallery-section {
+            padding: 10px 8% 50px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #ffb800;
+            border-left: 5px solid #ff3131;
+            padding-left: 20px;
+        }
+
+        .dp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .dp-card {
+            background: #151b24;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #2e3a4a;
+            transition: 0.3s;
+            box-shadow: 0 8px 0 #0b0e12;
+        }
+
+        .dp-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff7b00;
+            box-shadow: 0 12px 0 #0b0e12, 0 0 20px #ff7b0060;
+        }
+
+        .dp-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-bottom: 2px solid #2e3a4a;
+        }
+
+        .dp-info {
+            padding: 15px 12px;
+            text-align: center;
+        }
+
+        .dp-info h4 {
+            font-size: 1.1rem;
+            color: #ffb800;
+            margin-bottom: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #ff3131;
+            color: #fff;
+            box-shadow: 0 0 10px #ff3131;
+        }
+
+        .download-btn i {
+            margin-right: 5px;
+        }
+
+        /* ========== PAGINATION ========== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        .page-link {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #151b24;
+            border: 1px solid #3a4a60;
+            border-radius: 12px;
+            color: #e0e0e0;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .page-link:hover,
+        .page-link.active-page {
+            background: linear-gradient(45deg, #ff3131, #ff7b00);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 0 15px #ff7b00;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0a0f1a;
+            padding: 40px 8% 30px;
+            margin-top: 60px;
+            border-top: 5px solid #ff3131;
+            box-shadow: 0 -5px 30px rgba(255, 49, 49, 0.2);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #ffb800;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 12px;
+            transition: 0.2s;
+        }
+
+        footer a:hover {
+            color: #ff4d4d;
+            text-shadow: 0 0 8px #ff4d4d;
+        }
+
+        .founder {
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ffb800, #ff7b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 800;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 12px;
+                font-size: 0.9rem;
+            }
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+            .dp-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="logo">
+            <img src="https://placehold.co/100x100/1a1a2e/ffb800?text=FF" alt="FF Logo">
+            <span>FF <span style="color: #ffb800;">PANEL</span> HUB</span>
+        </div>
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="category.html">📂 Categories</a>
+            <a href="dp-zone.html" class="active">🔥 DP Zone</a>
+            <a href="privacy.html">🔒 Privacy</a>
+            <a href="disclaimer.html">⚠️ Disclaimer</a>
+            <a href="contact.html">📞 Contact</a>
+        </nav>
+    </header>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="page-hero">
+        <h1>🔥 FF DP ZONE 🔥</h1>
+        <p>Download HD Free Fire Profile Pictures – DJ Alok, Chrono, Kelly, Attitude & More!</p>
+    </section>
+
+    <!-- ====== TOP ADVERTISEMENT ====== -->
+    <div class="ad-container">
+        <div class="ad-label">Sponsored Ad</div>
+        <div class="fake-ad">💰 Google AdSense Banner (728x90) 💰</div>
+    </div>
+
+    <!-- ====== FILTER TABS ====== -->
+    <section class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-btn active-filter" data-filter="all">All DPs</button>
+            <button class="filter-btn" data-filter="alok">DJ Alok</button>
+            <button class="filter-btn" data-filter="chrono">Chrono</button>
+            <button class="filter-btn" data-filter="kelly">Kelly</button>
+            <button class="filter-btn" data-filter="attitude">Attitude</button>
+            <button class="filter-btn" data-filter="anime">Anime</button>
+            <button class="filter-btn" data-filter="joker">Joker</button>
+        </div>
+    </section>
+
+    <!-- ====== GALLERY SECTION ====== -->
+    <section class="gallery-section">
+        <h2 class="section-title">📸 Trending DPs</h2>
+        <div class="dp-grid" id="dpGrid">
+            <!-- DP Cards will be dynamically generated or static -->
+            <!-- For demonstration, we'll add static cards with data-category attribute -->
+            
+            <!-- DJ Alok DPs -->
+            <div class="dp-card" data-category="alok">
+                <img src="https://placehold.co/300x300/1a1a2e/ff4d4d?text=DJ+ALOK+1" alt="DJ Alok DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>DJ Alok #01</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="dp-card" data-category="alok">
+                <img src="https://placehold.co/300x300/1a1a2e/ff4d4d?text=DJ+ALOK+2" alt="DJ Alok DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>DJ Alok #02</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="dp-card" data-category="alok">
+                <img src="https://placehold.co/300x300/1a1a2e/ff4d4d?text=DJ+ALOK+3" alt="DJ Alok DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>DJ Alok #03</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Chrono DPs -->
+            <div class="dp-card" data-category="chrono">
+                <img src="https://placehold.co/300x300/1a1a2e/00ccff?text=CHRONO+1" alt="Chrono DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Chrono #01</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="dp-card" data-category="chrono">
+                <img src="https://placehold.co/300x300/1a1a2e/00ccff?text=CHRONO+2" alt="Chrono DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Chrono #02</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Kelly DPs -->
+            <div class="dp-card" data-category="kelly">
+                <img src="https://placehold.co/300x300/1a1a2e/ff69b4?text=KELLY+1" alt="Kelly DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Kelly #01</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="dp-card" data-category="kelly">
+                <img src="https://placehold.co/300x300/1a1a2e/ff69b4?text=KELLY+2" alt="Kelly DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Kelly #02</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Attitude DPs -->
+            <div class="dp-card" data-category="attitude">
+                <img src="https://placehold.co/300x300/1a1a2e/ff9933?text=ATTITUDE+1" alt="Attitude DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Attitude #01</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="dp-card" data-category="attitude">
+                <img src="https://placehold.co/300x300/1a1a2e/ff9933?text=ATTITUDE+2" alt="Attitude DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Attitude #02</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Anime DPs -->
+            <div class="dp-card" data-category="anime">
+                <img src="https://placehold.co/300x300/1a1a2e/aa66ff?text=ANIME+1" alt="Anime DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Anime #01</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="dp-card" data-category="anime">
+                <img src="https://placehold.co/300x300/1a1a2e/aa66ff?text=ANIME+2" alt="Anime DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Anime #02</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <!-- Joker DPs -->
+            <div class="dp-card" data-category="joker">
+                <img src="https://placehold.co/300x300/1a1a2e/66ff66?text=JOKER+1" alt="Joker DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Joker #01</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+            <div class="dp-card" data-category="joker">
+                <img src="https://placehold.co/300x300/1a1a2e/66ff66?text=JOKER+2" alt="Joker DP" class="dp-img">
+                <div class="dp-info">
+                    <h4>Joker #02</h4>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="page-link active-page">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </section>
+
+    <!-- ====== BOTTOM ADVERTISEMENT ====== -->
+    <div class="ad-container">
+        <div class="ad-label">Sponsored Ad</div>
+        <div class="fake-ad">💰 Google AdSense (Responsive Ad) 💰</div>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <p>© 2025 FF Panel Hub. All Rights Reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="disclaimer.html">Disclaimer</a> | 
+            <a href="contact.html">Contact</a>
+        </p>
+        <div class="founder">
+            ⚡ Founder & Owner: Er. Vikas Sharma ⚡
+        </div>
+        <p style="margin-top: 20px; color: #888;">📧 er.vikas@ffpanelhub.com</p>
+    </footer>
+
+    <!-- ====== FILTER SCRIPT ====== -->
+    <script>
+        // Simple filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const dpCards = document.querySelectorAll('.dp-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(b => b.classList.remove('active-filter'));
+                // Add active class to clicked button
+                btn.classList.add('active-filter');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                
+                dpCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
