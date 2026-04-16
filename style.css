@@ -163,3 +163,10 @@ footer a {
     color: #ffcc00;
     text-decoration: none;
 }
+
+.responsive-banner {
+    width: 100%;        /* Screen ki puri width lega */
+    max-width: 100%;    /* Apne container se bahar nahi jayega */
+    height: auto;       /* Aspect ratio maintain rakhega taki photo kheenchi hui na lage */
+    display: block;
+}
